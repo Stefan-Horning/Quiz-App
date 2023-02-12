@@ -1,5 +1,5 @@
 .container{
-    background-color: lightblue;
+    background-color: rgb(246, 241, 234);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@
 }
 
 body{
-    background-color: lightblue !important;
+    background-color: rgb(246, 241, 234) !important;
 }
 
 .card-flex{
@@ -16,6 +16,10 @@ body{
 
 .card-with{
     width: 100%;
+}
+
+.card{
+    max-width: 50rem;
 }
 
 .Quiz-img img{
@@ -38,3 +42,31 @@ body{
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+.bg-success , .bg-danger {
+    color: white;
+}
+
+.winner-img img{
+    object-fit: cover;
+    height: 25rem;
+    width: 90% !important;
+}
+
+.winner-img{
+    display: flex;
+    justify-content: center;
+}
+
+.End-headline{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.answer-request{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}

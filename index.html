@@ -21,41 +21,55 @@
 
     <div class="container">
         <div class="card card-with">
-              <div class="card-flex">
-                <div class="Quiz-img"> 
+              <div class="card-flex" id="card-flex">
+                <div class="Quiz-img" id="Quiz-img"> 
                   <img src="img/QUIZ.jpg" class="card-img-top" alt="...">
                 </div>
+
+                <div id="endScreen" style="display: none;">
+                  <div class="End-headline">
+                    Quiz beendet!
+                  </div>
+
+                  <div class="winner-img">
+                    <img src="img/winner.jpg" alt="">
+                  </div>
+
+                  <div class="answer-request">
+                    <span>Du hast <b id="amount-of-right-question"> x </b> Fragen von <b id="amountOfQuestion">X</b> richtig beantwortet!</span>  
+                  </div>
+                </div>
               
-                <div class="card-body">
+                <div class="card-body" id="quiz-body">
                   <h5 id="questiontext" class="card-title mb-4">Frage</h5>
                   
                   <div class="card answer-card mb-2" onclick="answer('answer_1')">
-                    <div id="quest1" class="card-body">
+                    <div id="answer_1" class="card-body">
                       This is some text within a card body.
                     </div>
                   </div>
                   <div class="card answer-card mb-2" onclick="answer('answer_2')">
-                    <div id="quest2" class="card-body">
+                    <div id="answer_2" class="card-body">
                       This is some text within a card body.
                     </div>
                   </div>
                   <div class="card answer-card mb-2" onclick="answer('answer_3')">
-                    <div id="quest3" class="card-body">
+                    <div id="answer_3" class="card-body">
                       This is some text within a card body.
                     </div>
                   </div>
                   <div class="card answer-card mb-2" onclick="answer('answer_4')">
-                    <div id="quest4" class="card-body">
+                    <div id="answer_4" class="card-body">
                       This is some text within a card body.
                     </div>
                   </div>
 
                   <div class="Quiz-footer">
                     <span>
-                      <b >1</b> von <b id="question-number"></b> Fragen
+                      <b id="number-quest">1</b> von <b id="question-number"></b> Fragen
                     </span>
 
-                    <button class="btn btn-primary">Nächste frage</button>
+                    <button onclick="nextQuestion()" class="btn btn-primary" id="next-btn" disabled>Nächste frage</button>
                   </div>
               </div>
               </div>
