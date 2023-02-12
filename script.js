@@ -41,3 +41,26 @@ let questions =[
     }
 ];
 
+let currentQuestion = 0;
+
+function init(){
+    document.getElementById('question-number').innerHTML = questions.length;
+    showQuestion()
+}
+
+function showQuestion(){
+    let question = questions[currentQuestion];
+    document.getElementById('questiontext').innerHTML = question['question'];
+    document.getElementById('quest1').innerHTML = question['answer_1'];
+    document.getElementById('quest2').innerHTML = question['answer_2'];
+    document.getElementById('quest3').innerHTML = question['answer_3'];
+    document.getElementById('quest4').innerHTML = question['answer_4'];
+}
+
+function answer(selection){
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = selection.slice(-1);
+    if (selectedQuestionNumber == question['right_answer']){
+        document.getElementById(selection).classList.add('bg-success');
+    }
+}
