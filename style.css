@@ -1,5 +1,5 @@
 .container{
-    background-color: antiquewhite;
+    background-color: lightblue;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -7,5 +7,29 @@
 }
 
 body{
-    background-color: antiquewhite !important;
+    background-color: lightblue !important;
 }
+
+.card-flex{
+    display: flex ;
+}
+
+.card-with{
+    width: 100%;
+}
+
+.Quiz-img img{
+    width: 300px !important;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Quiz-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    padding-top: 12px;
+    margin-top: 10px;
+}
+
