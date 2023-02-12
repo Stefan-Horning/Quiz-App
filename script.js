@@ -54,8 +54,11 @@ function showQuestion(){
         //END SCREEN
         document.getElementById('endScreen').style = '';
         document.getElementById('quiz-body').style = 'display: none;';
-        document.getElementById('Quiz-img').style= 'display: none;';
+        document.getElementById('Quiz-img').src = 'img/winner.jpg';
+        document.getElementById('Quiz-img').style = 'display: none';
         document.getElementById('card-flex').style = 'display:block;';
+        document.getElementById('img-end').style = '';
+
 
         document.getElementById('amountOfQuestion').innerHTML = questions.length;
         document.getElementById('amount-of-right-question').innerHTML = rightQuestion;
