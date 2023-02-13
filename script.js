@@ -54,15 +54,21 @@ function showQuestion(){
         //END SCREEN
         document.getElementById('endScreen').style = '';
         document.getElementById('quiz-body').style = 'display: none;';
-        document.getElementById('Quiz-img').src = 'img/winner.jpg';
         document.getElementById('Quiz-img').style = 'display: none';
         document.getElementById('card-flex').style = 'display:block;';
         document.getElementById('img-end').style = '';
-
-
+        let percent = currentQuestion / questions.length ;
+        percent = Math.round(percent * 100);
+        document.getElementById('progress-bar').innerHTML = `${percent}%`;
+        document.getElementById('progress-bar').style.width = `${percent}%`;
         document.getElementById('amountOfQuestion').innerHTML = questions.length;
         document.getElementById('amount-of-right-question').innerHTML = rightQuestion;
-    }else{
+    }else{ //Show Question
+
+        let percent = currentQuestion / questions.length ;
+        percent = Math.round(percent * 100);
+        document.getElementById('progress-bar').innerHTML = `${percent}%`;
+        document.getElementById('progress-bar').style.width = `${percent}%`;
         let question = questions[currentQuestion];
         document.getElementById('questiontext').innerHTML = question['question'];
         document.getElementById('answer_1').innerHTML = question['answer_1'];
@@ -99,4 +105,16 @@ function resetAnswer(){
         document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-success');
         document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-danger');
     }
+}
+
+function restartGame(){
+        document.getElementById('endScreen').style = 'display: none';
+        document.getElementById('img-end').style = 'display: none';
+        document.getElementById('quiz-body').style = 'display: block;';
+        document.getElementById('Quiz-img').style = 'display: flex';
+        document.getElementById('card-flex').style = 'display: flex';
+        document.getElementById('number-quest').innerHTML = 0;
+        currentQuestion = 0;
+        rightQuestion = 0;
+        init();
 }

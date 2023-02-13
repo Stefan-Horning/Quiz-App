@@ -8,6 +8,13 @@
 
 body{
     background-color: rgb(246, 241, 234) !important;
+    max-height: 100vh !important;
+    overflow-y: hidden;
+}
+
+.winner{
+    height: 300px;
+    object-fit: cover;
 }
 
 .card-flex{
@@ -28,9 +35,22 @@ body{
     object-fit: cover;
 }
 
-.Quiz-footer{
+.progress{
+    width: 100% !important;
+    margin-bottom: 2rem;
+}
+
+.amount-footer{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.Quiz-footer{
+    display: flex;
+    flex-direction: column;
+    
     align-items: center;
     border-top: 1px solid rgba(0, 0, 0, 0.4);
     padding-top: 12px;
@@ -69,4 +89,12 @@ body{
     justify-content: center;
     align-items: center;
     padding: 12px;
+    flex-direction: column;
+}
+
+.progress{
+    width: 90%;
+    margin-left: 5px;
+    margin-right: 10px;
+    background-color: rgb(190, 190, 190);
 }

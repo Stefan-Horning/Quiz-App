@@ -18,6 +18,9 @@
           <span class="navbar-brand mb-0 h1">Quiz-App</span>
         </div>
     </nav>
+    <div class="progress mt-2 ">
+      <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 25%;" >0%</div>
+    </div>
 
     <div class="container">
         <div class="card card-with">
@@ -27,15 +30,18 @@
                 </div>
 
                 <div id="img-end" style="display: none;">
-                  <img src="img/winner.jpg" id="Quiz-img" class="card-img-top" alt="...">
+                  <img src="img/winner.jpg" id="Quiz-img" class="card-img-top winner" alt="...">
+                
                 </div>
                 <div id="endScreen" style="display: none;">
                   <div class="End-headline">
                     <h3>Quiz beendet!</h3>
+                    
                   </div>
 
                   <div class="answer-request">
                     <span>Du hast <b id="amount-of-right-question"> x </b> Fragen von <b id="amountOfQuestion">X</b> richtig beantwortet!</span>  
+                    <button onclick="restartGame()" class="btn btn-primary mt-2" id="" >Erneut spielen</button>
                   </div>
                 </div>
               
@@ -64,11 +70,15 @@
                   </div>
 
                   <div class="Quiz-footer">
-                    <span>
-                      <b id="number-quest">1</b> von <b id="question-number"></b> Fragen
-                    </span>
-
-                    <button onclick="nextQuestion()" class="btn btn-primary" id="next-btn" disabled>Nächste frage</button>
+                    
+                    <div class="amount-footer">
+                      <span>
+                        <b id="number-quest">1</b> von <b id="question-number"></b> Fragen
+                      </span>
+  
+                      <button onclick="nextQuestion()" class="btn btn-primary" id="next-btn" disabled>Nächste frage</button>
+                    </div>
+                    
                   </div>
               </div>
               </div>
