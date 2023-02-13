@@ -43,16 +43,16 @@ let questions =[
 
 let currentQuestion = 0;
 let rightQuestion = 0;
+let AUDIO_R = new Audio('img/right.wav')
+let AUDIO_W = new Audio('img/false.m4a')
 
 function init(){
     document.getElementById('question-number').innerHTML = questions.length;
     showQuestion()
 }
 
-function showQuestion(){
-    if(currentQuestion >= questions.length){
-        //END SCREEN
-        document.getElementById('endScreen').style = '';
+function showEndScreen(){
+    document.getElementById('endScreen').style = '';
         document.getElementById('quiz-body').style = 'display: none;';
         document.getElementById('Quiz-img').style = 'display: none';
         document.getElementById('card-flex').style = 'display:block;';
@@ -63,33 +63,54 @@ function showQuestion(){
         document.getElementById('progress-bar').style.width = `${percent}%`;
         document.getElementById('amountOfQuestion').innerHTML = questions.length;
         document.getElementById('amount-of-right-question').innerHTML = rightQuestion;
-    }else{ //Show Question
+}
 
+function showQuestion(){
+    if(gameIsOver()){
+        showEndScreen();
+    }else{ 
+        updateProgressBar();
+        updateNextQuestion();
+    } 
+}
+
+function gameIsOver(){
+    return currentQuestion >= questions.length;
+}
+
+function updateNextQuestion(){
+        let question = questions[currentQuestion];
+        document.getElementById('questiontext').innerHTML = question['question'];
+        for(i = 1; i <= 4; i++){
+            document.getElementById(`answer_${i}`).innerHTML = question[`answer_${i}`];
+        }   
+}
+
+function updateProgressBar(){
         let percent = currentQuestion / questions.length ;
         percent = Math.round(percent * 100);
         document.getElementById('progress-bar').innerHTML = `${percent}%`;
         document.getElementById('progress-bar').style.width = `${percent}%`;
-        let question = questions[currentQuestion];
-        document.getElementById('questiontext').innerHTML = question['question'];
-        document.getElementById('answer_1').innerHTML = question['answer_1'];
-        document.getElementById('answer_2').innerHTML = question['answer_2'];
-        document.getElementById('answer_3').innerHTML = question['answer_3'];
-        document.getElementById('answer_4').innerHTML = question['answer_4'];
-    } 
 }
 
 function answer(selection){
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
     let idOfRightAnswer = `answer_${question['right_answer']}`
-    if (selectedQuestionNumber == question['right_answer']){
+    if (rightAnswerSelected(selectedQuestionNumber,question)){
         document.getElementById(selection).parentNode.classList.add('bg-success');
         rightQuestion++;
+        AUDIO_R.play()
     }else{
         document.getElementById(selection).parentNode.classList.add('bg-danger');
-        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success')
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+        AUDIO_W.play()
     }
     document.getElementById('next-btn').disabled = false;
+}
+
+function rightAnswerSelected(selectedQuestionNumber, question){
+    return selectedQuestionNumber == question['right_answer'];
 }
 
 function nextQuestion(){
